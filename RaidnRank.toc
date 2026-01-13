@@ -1,0 +1,8 @@
+## Interface: 11200
+## Title: RaidnRank
+## Notes: Export guild member names and ranks
+## Author: Codex
+## Version: 1.0
+## SavedVariables: RaidnRankDB
+
+RaidnRank.lua
