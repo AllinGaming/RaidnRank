@@ -48,6 +48,7 @@ def main():
 
     df["rank"] = df["Attendee"].map(name_to_rank)
     df["officernote"] = df["Attendee"].map(name_to_officernote)
+    df["officernote"] = df["officernote"].fillna("").astype(str)
 
     mask_included = df["rank"].isin(included_ranks)
     mask_eligible = df["rank"].isin(eligible_ranks)
