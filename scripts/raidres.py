@@ -11,8 +11,8 @@ TEMP_DIR = BASE_DIR / "temp"
 
 RAIDNRANK_PATH = TEMP_DIR / "RaidnRank.lua"
 RAIDRES_PATH = TEMP_DIR / "raidres.csv"
-OUTPUT_PATH = BASE_DIR / "finalized_raidres.csv"
-COMBAT_LOG_PATH = BASE_DIR / "WoWCombatLog.txt"
+OUTPUT_PATH = TEMP_DIR / "finalized_raidres.csv"
+COMBAT_LOG_PATH = TEMP_DIR / "WoWCombatLog.txt"
 
 try:
     from extract_people import extract_names as extract_log_names
