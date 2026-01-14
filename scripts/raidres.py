@@ -7,9 +7,10 @@ import pandas as pd
 
 BASE_DIR = Path(__file__).resolve().parent
 REPO_ROOT = BASE_DIR.parent
+TEMP_DIR = BASE_DIR / "temp"
 
-RAIDNRANK_PATH = BASE_DIR / "RaidnRank.lua"
-RAIDRES_PATH = BASE_DIR / "raidres.csv"
+RAIDNRANK_PATH = TEMP_DIR / "RaidnRank.lua"
+RAIDRES_PATH = TEMP_DIR / "raidres.csv"
 OUTPUT_PATH = BASE_DIR / "finalized_raidres.csv"
 COMBAT_LOG_PATH = BASE_DIR / "WoWCombatLog.txt"
 
