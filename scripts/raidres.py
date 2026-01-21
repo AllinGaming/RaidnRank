@@ -56,7 +56,10 @@ def main():
     mask_alt = df["officernote"].str.contains("alt", case=False, na=False)
 
     # Include only allowed ranks, excluding alts, and duplicate eligible rows.
-    df_included = df[mask_included & ~mask_alt]
+    df_included = df[mask_included & ~mask_alt].copy()
+
+    # Add CSR Bonus column (blank by default)
+    df_included["CSR Bonus"] = ""
 
     if COMBAT_LOG_PATH.exists() and extract_log_names is not None:
         log_text = COMBAT_LOG_PATH.read_text(encoding="utf-8", errors="replace")
@@ -66,10 +69,16 @@ def main():
             for name in sorted(log_names, key=str.lower):
                 print(name)
         df_included = df_included[df_included["Attendee"].isin(log_names)]
+
+    # Duplicate eligible rows and mark only the duplicated copies as CSR Bonus = Yes
+    df_bonus = df_included[mask_eligible].copy()
+    df_bonus["CSR Bonus"] = "Yes"
+
     df_doubled = pd.concat(
-        [df_included, df_included[mask_eligible]],
+        [df_included, df_bonus],
         ignore_index=True,
     )
+
     df_doubled = df_doubled.drop(columns=["rank", "officernote"])
 
     df_doubled.to_csv(OUTPUT_PATH, index=False)
