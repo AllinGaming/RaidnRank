@@ -1,6 +1,6 @@
 # RaidnRank
 
-Workflow for extracting RaidnRank results and preparing the spreadsheet upload. TEST
+Workflow for extracting RaidnRank results and preparing the spreadsheet upload.
 
 ## Steps
 1. In game, run `/rnr export`.
